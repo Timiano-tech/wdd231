@@ -180,6 +180,17 @@ button.active {
     padding: 1.5rem;
 }
 
+.units-header {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--primary-color);
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+
+
 .course-item {
     background: var(--secondary-color);
     padding: 1.5rem;

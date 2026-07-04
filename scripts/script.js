@@ -83,11 +83,16 @@ function displayCourses(filter = 'all') {
     courseList.innerHTML = '';
 
     let filteredCourses = courses;
+    let totalUnits = 0;
 
     if (filter === 'cse') {
         filteredCourses = courses.filter(course => course.subject === 'CSE');
+        totalUnits = 6;
     } else if (filter === 'wdd') {
         filteredCourses = courses.filter(course => course.subject === 'WDD');
+        totalUnits = 6;
+    } else {
+        totalUnits = 12;
     }
 
     filteredCourses.forEach(course => {
@@ -101,6 +106,12 @@ function displayCourses(filter = 'all') {
         `;
         courseList.appendChild(courseItem);
     });
+
+
+    const unitsFooter = document.createElement('div');
+    unitsFooter.classList.add('units-header');
+    unitsFooter.innerHTML = `<p><strong>The total credit for courses listed above is ${totalUnits}</strong></p>`;
+    courseList.appendChild(unitsFooter);
 }
 
 // Display all courses on page load
