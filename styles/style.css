@@ -127,12 +127,80 @@ section p {
 
 .welcome-message {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.student-course {
+    grid-column: 1 / -1;
+}
+
+.student-photo .photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
 }
 
 .student-photo img {
     width: 200px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+button {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: var(--accent-color);
+}
+
+button.active {
+    background: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.3);
+}
+
+#course-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.course-item {
+    background: #f0f4f8;
+    border-left: 4px solid var(--accent-color);
+    padding: 1.5rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(31, 58, 95, 0.1);
+}
+
+.course-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.course-item p {
+    margin: 0.25rem 0;
+    padding: 0;
 }
 
 /* Footer */
@@ -178,5 +246,13 @@ footer {
         display: block;
         width: 100%;
         background: rgba(255, 255, 255, 0.08);
+    }
+
+    .welcome-message {
+        grid-template-columns: 1fr;
+    }
+
+    .student-course {
+        grid-column: 1;
     }
 }
