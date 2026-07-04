@@ -4,11 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description"
+        content="This is WDD 231 - Course Home Page. This page is designed to provide information about the course, including syllabus, assignments, and resources for students.">
+    <meta name="author" content="Ajayi Oluwatimileyin">
+    <title>WDD 231 - Course Home Page</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="scripts/script.js" defer></script>
 </head>
 
 <body>
-    <h1>Welcome to WDD 231</h1>
+
+    <header>
+        <div class="logo">
+            <img src="" alt="">
+            <h1 class="name">CourseX</h1>
+        </div>
+
+
+        <button class="hamburger-menu" type="button" aria-label="Open navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chamber.html">Chamber Project</a></li>
+                <li><a href="final.html">Final Project</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="main-header">Home</h1>
+        <div class="welcome-message">
+            <section class="about-me">
+                <h2>About Me</h2>
+                <p>Hello! My name is Ajayi Oluwatimileyin, and I am a student in the WDD 231 course. I have a passion
+                    for web development and design, and I am excited to learn more about creating engaging and
+                    user-friendly websites. In my free time, I enjoy exploring new technologies, working on personal
+                    projects, and collaborating with others in the tech community.</p>
+            </section>
+            <section class="student-photo">
+                <h2>Student Photo</h2>
+                <img src="images/my_picture.jpeg" alt="Student Photo">
+            </section>
+
+            <section class="student-course">
+                <h2>Web Certificate Course</h2>
+                <div class="buttons">
+                    <button type="button" id="btn-all">All</button>
+                    <button type="button" id="btn-cse">CSE</button>
+                    <button type="button" id="btn-wdd">WDD</button>
+                </div>
+                <div id="course-container"></div>
+            </section>
+        </div>
+    </main>
+
+
+    <footer>
+        <p>&copy; <span id="currentyear"></span> Ajayi Oluwatimileyin - CourseX</p>
+        <p id="lastModified">Last Modification:</p>
+    </footer>
+
 </body>
 
 </html>
