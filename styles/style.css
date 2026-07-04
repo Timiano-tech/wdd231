@@ -36,6 +36,12 @@ header {
     align-items: center;
 }
 
+.logo img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(1);
+}
+
 .name {
     margin-left: 0.75rem;
     font-family: 'Playfair Display', serif;
@@ -215,6 +221,21 @@ button.active {
 }
 
 /* Footer */
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.socials img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
 footer {
     background-color: var(--primary-color);
     color: white;
