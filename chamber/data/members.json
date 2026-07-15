@@ -1,0 +1,72 @@
+[
+    {
+        "company name": "Dangote Group",
+        "company address": "Union Marble House, 1 Alfred Rewane Road, PMB 40032, Falomo, Ikoyi, Lagos, Nigeria",
+        "company phone number": "+234 1 448 0815",
+        "company website": "www.dangote.com",
+        "company image": "images/dangote.png",
+        "company membership level": 3,
+        "industry": "Manufacturing",
+        "description": "A major industrial and infrastructure leader with a strong footprint across West Africa."
+    },
+    {
+        "company name": "MTN Nigeria",
+        "company address": "MTN Plaza, No 1, Awolowo Road, Falomo, Ikoyi, Lagos, Nigeria",
+        "company phone number": "300",
+        "company website": "www.mtn.ng",
+        "company image": "images/mtn.jpg",
+        "company membership level": 3,
+        "industry": "Telecommunications",
+        "description": "Digital connectivity provider supporting homes, businesses, and community outreach."
+    },
+    {
+        "company name": "Guaranty Trust Holding Company (GTBank)",
+        "company address": "Plot 635, Akin Adesola Street, Victoria Island, Lagos, Nigeria",
+        "company phone number": "+234 201 448 0000",
+        "company website": "www.gtbank.com",
+        "company image": "images/gtb.png",
+        "company membership level": 3,
+        "industry": "Financial Services",
+        "description": "A leading financial institution focused on innovation, trust, and expansion."
+    },
+    {
+        "company name": "Flutterwave",
+        "company address": "8 Providence Street, Lekki Phase 1, Lagos, Nigeria",
+        "company phone number": "+234 1 888 9595",
+        "company website": "www.flutterwave.com",
+        "company image": "images/flutterwave.png",
+        "company membership level": 2,
+        "industry": "Fintech",
+        "description": "Payment infrastructure company helping businesses accept payments across Africa."
+    },
+    {
+        "company name": "Zenith Bank Plc",
+        "company address": "Plot 84, Ajose Adeogun Street, Victoria Island, Lagos, Nigeria",
+        "company phone number": "+234 1 278 7000",
+        "company website": "www.zenithbank.com",
+        "company image": "images/zenith.jpg",
+        "company membership level": 2,
+        "industry": "Banking",
+        "description": "Established financial partner with a strong service culture and local presence."
+    },
+    {
+        "company name": "Jumia Nigeria",
+        "company address": "109 Adeniyi Jones Avenue, Ikeja, Lagos, Nigeria",
+        "company phone number": "+234 700 600 0000",
+        "company website": "www.jumia.com.ng",
+        "company image": "images/jumia.svg",
+        "company membership level": 2,
+        "industry": "E-commerce",
+        "description": "Online marketplace connecting shoppers with brands and everyday essentials."
+    },
+    {
+        "company name": "Nigerian Bottling Company Plc",
+        "company address": "1 Abebe Village Road, Iganmu, Lagos, Nigeria",
+        "company phone number": "+234 1 271 7400",
+        "company website": "www.nbplc.com",
+        "company image": "images/nbc.jpg",
+        "company membership level": 1,
+        "industry": "Beverages",
+        "description": "Long-standing beverage producer supporting local distribution and community events."
+    }
+]

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Tims Chamber of Commerce Directory">
+    <meta property="og:description"
+        content="Discover the businesses and organizations that make up Tims Chamber of Commerce.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Tims Chamber of Commerce">
+    <title>Tims Chamber of Commerce | Directory</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="scripts/directory.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="brand">
+            <h1>Tims Chamber of Commerce</h1>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="../index.html">Home</a>
+            <a href="directory.html" class="active">Directory</a>
+            <a href="join.html">Join</a>
+            <a href="discover.html">Discover</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-intro">
+            <div>
+                <h2>Member directory</h2>
+            </div>
+            <div class="view-toggle" role="toolbar" aria-label="View toggle">
+                <button class="toggle-btn active" data-view="grid" aria-pressed="true">Grid</button>
+                <button class="toggle-btn" data-view="list" aria-pressed="false">List</button>
+            </div>
+        </section>
+
+        <section class="member-section">
+            <div id="members-container" class="member-list grid"></div>
+        </section>
+    </main>
+
+    <footer>
+
+        <div>
+            <p>Tims Chamber of Commerce</p>
+            <p></p>
+
+        </div>
+
+        <div class="socials">
+            <a href="https://github.com/Timiano-tech/wdd231"><img src="images/github.svg" alt="GitHub"></a>
+            <a href="https://www.linkedin.com"><img src="images/linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://www.facebook.com"><img src="images/facebook.svg" alt="Facebook"></a>
+        </div>
+
+        <div>
+            <p>&copy; <span id="currentyear"></span> Ajayi Oluwatimileyin WDD 231 - Chamber Commerce</p>
+            <p id="lastModified">Last Modification:</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
