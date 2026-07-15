@@ -2,13 +2,11 @@ const container = document.querySelector('#members-container');
 const toggleButtons = document.querySelectorAll('.toggle-btn');
 const menuToggle = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
-const year = document.querySelector('#year');
-
 const date = document.getElementById("lastModified");
 date.innerHTML = `Last Modification: ${document.lastModified}`;
-
 const year = document.querySelector("#currentyear");
 year.innerHTML = new Date().getFullYear();
+
 
 function setView(view) {
     if (!container) return;
