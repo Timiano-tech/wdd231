@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply to join Tims Chamber of Commerce with a membership application form.">
+    <meta name="author" content="Ajayi Oluwatimileyin">
+    <title>Tims Chamber of Commerce | Join</title>
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="images/github.svg">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/join.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="brand">
+            Tims Chamber of Commerce
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="directory.html">Directory</a>
+            <a href="join.html" class="active">Join</a>
+            <a href="discover.html">Discover</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-intro">
+            <p class="eyebrow">Member application</p>
+            <h2>Start your chamber membership application.</h2>
+            <p>Complete the form with your business details, choose the membership level that fits your goals, and
+                review the benefits in the cards.</p>
+        </section>
+
+        <div class="join-grid">
+            <form class="membership-form" method="get" action="thankyou.html">
+                <label>
+                    First name
+                    <input type="text" name="firstName" title="Applicant first name" autocomplete="given-name" required>
+                </label>
+
+                <label>
+                    Last name
+                    <input type="text" name="lastName" title="Applicant last name" autocomplete="family-name" required>
+                </label>
+
+                <label>
+                    Organizational title
+                    <input type="text" name="orgTitle" title="Applicant organizational title"
+                        autocomplete="organization-title" pattern="[A-Za-z\- ]{7,}" placeholder="Executive Director">
+                </label>
+
+                <label>
+                    Email address
+                    <input type="email" name="email" title="Applicant email address" autocomplete="email"
+                        placeholder="name@example.com" required>
+                </label>
+
+                <label>
+                    Mobile phone number
+                    <input type="tel" name="phone" title="Applicant mobile phone number" autocomplete="tel" required>
+                </label>
+
+                <label>
+                    Business or organization name
+                    <input type="text" name="organization" title="Business or organization name"
+                        autocomplete="organization" required>
+                </label>
+
+                <label>
+                    Membership level
+                    <select name="membershipLevel" title="Select membership level" required>
+                        <option value="">Choose a level</option>
+                        <option value="np">NP Membership</option>
+                        <option value="bronze">Bronze Membership</option>
+                        <option value="silver">Silver Membership</option>
+                        <option value="gold">Gold Membership</option>
+                    </select>
+                </label>
+
+                <label>
+                    Business description
+                    <textarea name="description" title="Business or organization description" rows="5"></textarea>
+                </label>
+
+                <input type="hidden" id="timestamp" name="timestamp">
+
+                <div class="form-actions">
+                    <button type="submit">Submit application</button>
+                </div>
+            </form>
+
+            <aside class="membership-cards" aria-label="Membership benefits">
+                <div class="cards-header">
+                    <h3>Membership levels</h3>
+                    <p>Review benefits for each level before submitting your application.</p>
+                </div>
+
+                <div class="cards-grid">
+                    <article class="membership-card">
+                        <h4>NP Membership</h4>
+                        <p>No fee for qualifying non-profit organizations.</p>
+                        <a href="#" data-modal="modal-np">Learn more</a>
+                    </article>
+
+                    <article class="membership-card">
+                        <h4>Bronze Membership</h4>
+                        <p>Entry-level membership for small businesses and community partners.</p>
+                        <a href="#" data-modal="modal-bronze">Learn more</a>
+                    </article>
+
+                    <article class="membership-card">
+                        <h4>Silver Membership</h4>
+                        <p>Enhanced exposure and discounts for growing organizations.</p>
+                        <a href="#" data-modal="modal-silver">Learn more</a>
+                    </article>
+
+                    <article class="membership-card">
+                        <h4>Gold Membership</h4>
+                        <p>Premium access to events, advertising, and leadership opportunities.</p>
+                        <a href="#" data-modal="modal-gold">Learn more</a>
+                    </article>
+                </div>
+            </aside>
+        </div>
+
+        <div class="modal" id="modal-np" aria-hidden="true">
+            <div class="modal-backdrop" data-close="true"></div>
+            <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-np-title">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Close NP membership details">×</button>
+                    <h3 id="modal-np-title">NP Membership</h3>
+                    <p>The NP Membership is designed for non-profit businesses looking for support, community
+                        connections, and access to select events without an annual fee.</p>
+                    <ul>
+                        <li>Access to community networking events</li>
+                        <li>Invitations to training and volunteer workshops</li>
+                        <li>Visibility in the chamber directory</li>
+                        <li>Support for collaborative grant and fundraising efforts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-bronze" aria-hidden="true">
+            <div class="modal-backdrop" data-close="true"></div>
+            <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-bronze-title">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Close Bronze membership details">×</button>
+                    <h3 id="modal-bronze-title">Bronze Membership</h3>
+                    <p>Bronze members gain a stronger chamber presence with marketing support and exclusive event access
+                        tailored for new and small businesses.</p>
+                    <ul>
+                        <li>Quarterly promotional spotlight in member communications</li>
+                        <li>Discounted rates for workshops and trainings</li>
+                        <li>Access to member-only networking socials</li>
+                        <li>Priority invitations to local community events</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-silver" aria-hidden="true">
+            <div class="modal-backdrop" data-close="true"></div>
+            <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-silver-title">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Close Silver membership details">×</button>
+                    <h3 id="modal-silver-title">Silver Membership</h3>
+                    <p>Silver members receive expanded visibility plus deeper discounts and access to leadership
+                        development resources.</p>
+                    <ul>
+                        <li>Featured placement on the chamber homepage</li>
+                        <li>Reduced fees for training, seminars, and conferences</li>
+                        <li>Invitations to strategy sessions and member roundtables</li>
+                        <li>Access to advertising opportunities and event sponsorships</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-gold" aria-hidden="true">
+            <div class="modal-backdrop" data-close="true"></div>
+            <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-gold-title">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Close Gold membership details">×</button>
+                    <h3 id="modal-gold-title">Gold Membership</h3>
+                    <p>Gold membership delivers premium benefits for businesses seeking maximum exposure, advertising
+                        benefits, and leadership influence.</p>
+                    <ul>
+                        <li>Spotlight advertising on the home page and member directory</li>
+                        <li>Exclusive sponsor opportunities for major chamber events</li>
+                        <li>Complimentary leadership workshops and coaching sessions</li>
+                        <li>VIP access to networking dinners and community initiatives</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <p>Tims Chamber of Commerce</p>
+        </div>
+
+        <div class="socials">
+            <a href="https://github.com/Timiano-tech/wdd231"><img src="images/github.svg" alt="GitHub"></a>
+            <a href="https://www.linkedin.com"><img src="images/linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://www.facebook.com"><img src="images/facebook.svg" alt="Facebook"></a>
+        </div>
+
+        <div>
+            <p>&copy; <span id="currentyear"></span> Ajayi Oluwatimileyin WDD 231</p>
+        </div>
+    </footer>
+    <script src="scripts/join.js" defer></script>
+</body>
+
+</html>

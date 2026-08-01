@@ -1,0 +1,203 @@
+.join-grid {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.membership-form,
+.membership-cards {
+    background: white;
+    border: 1px solid rgba(17, 50, 77, 0.14);
+    border-radius: 1rem;
+    padding: 1.3rem;
+    box-shadow: 0 12px 24px rgba(17, 50, 77, 0.07);
+}
+
+.membership-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.membership-form label {
+    display: grid;
+    gap: 0.45rem;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.membership-form input[type="text"],
+.membership-form input[type="email"],
+.membership-form input[type="tel"],
+.membership-form select,
+.membership-form textarea {
+    width: 100%;
+    border: 1px solid rgba(17, 50, 77, 0.18);
+    border-radius: 0.75rem;
+    padding: 0.85rem 1rem;
+    font: inherit;
+    color: var(--text);
+    background: #fff;
+}
+
+.membership-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.membership-form .form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.membership-form button {
+    border: none;
+    background: var(--gold);
+    color: var(--text);
+    padding: 0.95rem 1.4rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.membership-form button:hover,
+.membership-form button:focus-visible {
+    outline: 3px solid rgba(242, 184, 75, 0.5);
+    outline-offset: 3px;
+}
+
+.membership-cards {
+    display: grid;
+    gap: 1rem;
+}
+
+.cards-header h3 {
+    margin: 0 0 0.4rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+}
+
+.cards-grid {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.membership-card {
+    background: linear-gradient(180deg, rgba(242, 184, 75, 0.12), #fff 85%);
+    border: 1px solid rgba(242, 184, 75, 0.35);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: grid;
+    gap: 0.8rem;
+    animation: card-load 0.9s ease-out forwards;
+    opacity: 0;
+    transform: translateY(16px);
+}
+
+.membership-card:nth-child(1) {
+    animation-delay: 0.08s;
+}
+
+.membership-card:nth-child(2) {
+    animation-delay: 0.18s;
+}
+
+.membership-card:nth-child(3) {
+    animation-delay: 0.28s;
+}
+
+.membership-card:nth-child(4) {
+    animation-delay: 0.38s;
+}
+
+.membership-card h4 {
+    margin: 0;
+    color: var(--navy);
+}
+
+.membership-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.membership-card a {
+    color: var(--teal);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 1.5rem;
+    z-index: 20;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.modal.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-panel {
+    width: min(680px, 100%);
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 24px 48px rgba(17, 50, 77, 0.18);
+    max-height: min(90vh, 780px);
+    overflow-y: auto;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    color: var(--navy);
+    font-size: 1.5rem;
+    position: absolute;
+    right: 1.2rem;
+    top: 1.2rem;
+    cursor: pointer;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.modal-panel h3 {
+    margin-top: 0;
+}
+
+.modal-panel ul {
+    margin: 1rem 0 0;
+    padding-left: 1.2rem;
+}
+
+@keyframes card-load {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .join-grid {
+        grid-template-columns: minmax(0, 1fr) 360px;
+        align-items: start;
+    }
+
+    .membership-cards {
+        position: sticky;
+        top: 1.8rem;
+        align-self: start;
+    }
+}
