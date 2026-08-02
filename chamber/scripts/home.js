@@ -1,8 +1,7 @@
-const OPEN_WEATHER_API_KEY = 'YOUR_OPENWEATHERMAP_API_KEY';
+const OPEN_WEATHER_API_KEY = '1bb53892b1e24f235003033b6bf14ec1';
 const weatherLocation = {
     name: 'Lagos, NG',
-    lat: 6.5244,
-    lon: 3.3792,
+    city: 'Lagos',
 };
 
 const currentWeatherElement = document.getElementById('current-weather');
@@ -23,45 +22,84 @@ function capitalize(text) {
 
 function showWeatherError(message) {
     currentWeatherElement.innerHTML = `<p class="status-message">${message}</p>`;
-    forecastCardsElement.innerHTML = '';
+    forecastCardsElement.innerHTML = '<p class="status-message">Forecast unavailable.</p>';
 }
 
 function renderWeather(data) {
-    const current = data.current;
-    const description = capitalize(current.weather[0]?.description || 'No data');
+    const description = capitalize(data.weather[0]?.description || 'No data');
     currentWeatherElement.innerHTML = `
         <div class="weather-heading">
             <span class="weather-location">${weatherLocation.name}</span>
-            <span class="weather-temp">${Math.round(current.temp)}C</span>
+            <span class="weather-temp">${Math.round(data.main.temp)}°C</span>
         </div>
         <p class="weather-description">${description}</p>
-        <p class="weather-detail">Feels like ${Math.round(current.feels_like)}C5 m,vb/nL;'
-        | Humidity ${current.humidity}%</p>
+        <p class="weather-detail">Feels like ${Math.round(data.main.feels_like)}°C | Humidity ${data.main.humidity}%</p>
     `;
+}
 
-    forecastCardsElement.innerHTML = data.daily.slice(1, 4).map((day) => `
+function renderForecast(data) {
+    const today = new Date().getDate();
+    const daily = [];
+    const daysSeen = new Set();
+
+    for (const item of data.list) {
+        const date = new Date(item.dt * 1000);
+        const day = date.getDate();
+        if (day === today) continue;
+        if (date.getHours() === 12 && !daysSeen.has(day)) {
+            daysSeen.add(day);
+            daily.push(item);
+        }
+        if (daily.length === 3) break;
+    }
+
+    if (daily.length < 3) {
+        for (const item of data.list) {
+            const date = new Date(item.dt * 1000);
+            const day = date.getDate();
+            if (day === today || daysSeen.has(day)) continue;
+            daysSeen.add(day);
+            daily.push(item);
+            if (daily.length === 3) break;
+        }
+    }
+
+    if (!daily.length) {
+        forecastCardsElement.innerHTML = '<p class="status-message">3-day forecast is unavailable.</p>';
+        return;
+    }
+
+    forecastCardsElement.innerHTML = daily.map((item) => `
         <article class="forecast-item">
-            <span>${formatDay(day.dt)}</span>
-            <span>${Math.round(day.temp.max)}� / ${Math.round(day.temp.min)}�</span>
+            <span>${formatDay(item.dt)}</span>
+            <span>${Math.round(item.main.temp_max)}° / ${Math.round(item.main.temp_min)}°</span>
         </article>
     `).join('');
 }
 
 async function loadWeather() {
-    if (!OPEN_WEATHER_API_KEY || OPEN_WEATHER_API_KEY === '0c66ef988f57ee3b854f5154dc8770b5') {
+    if (!OPEN_WEATHER_API_KEY) {
         showWeatherError('Add your OpenWeatherMap API key in scripts/home.js to display live weather.');
         return;
     }
 
-    const endpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherLocation.lat}&lon=${weatherLocation.lon}&exclude=minutely,hourly,alerts&units=metric&appid=${OPEN_WEATHER_API_KEY}`;
+    const currentEndpoint = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(weatherLocation.city)}&units=metric&appid=${OPEN_WEATHER_API_KEY}`;
+    const forecastEndpoint = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(weatherLocation.city)}&units=metric&appid=${OPEN_WEATHER_API_KEY}`;
 
     try {
-        const response = await fetch(endpoint);
-        if (!response.ok) {
+        const [currentResponse, forecastResponse] = await Promise.all([
+            fetch(currentEndpoint),
+            fetch(forecastEndpoint),
+        ]);
+
+        if (!currentResponse.ok || !forecastResponse.ok) {
             throw new Error('Weather service unavailable');
         }
-        const weatherData = await response.json();
+
+        const weatherData = await currentResponse.json();
+        const forecastData = await forecastResponse.json();
         renderWeather(weatherData);
+        renderForecast(forecastData);
     } catch (error) {
         console.error(error);
         showWeatherError('Weather data could not be loaded at this time.');

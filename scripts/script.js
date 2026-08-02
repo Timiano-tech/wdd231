@@ -19,6 +19,55 @@ date.innerHTML = `Last Modification: ${document.lastModified}`;
 const year = document.querySelector("#currentyear");
 year.innerHTML = new Date().getFullYear();
 
+const OPEN_WEATHER_API_KEY = '95a2166f72e15e0d2bec62152ea7f839';
+const weatherLocation = {
+    name: 'Lagos, NG',
+    city: 'Lagos',
+};
+const homeWeatherElement = document.getElementById('home-weather');
+
+function capitalize(text) {
+    return text ? text[0].toUpperCase() + text.slice(1) : '';
+}
+
+function showHomeWeatherError(message) {
+    if (homeWeatherElement) {
+        homeWeatherElement.innerHTML = `<p class="status-message">${message}</p>`;
+    }
+}
+
+function renderHomeWeather(data) {
+    if (!homeWeatherElement) return;
+    const description = capitalize(data.weather?.[0]?.description || 'No data');
+    homeWeatherElement.innerHTML = `
+        <div class="weather-heading">
+            <span class="weather-location">${weatherLocation.name}</span>
+            <span class="weather-temp">${Math.round(data.main.temp)}°C</span>
+        </div>
+        <p class="weather-description">${description}</p>
+        <p class="weather-detail">Feels like ${Math.round(data.main.feels_like)}°C | Humidity ${data.main.humidity}%</p>
+    `;
+}
+
+async function loadHomeWeather() {
+    if (!OPEN_WEATHER_API_KEY) {
+        showHomeWeatherError('Weather API key is needed to display live weather.');
+        return;
+    }
+
+    const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(weatherLocation.city)}&units=metric&appid=${OPEN_WEATHER_API_KEY}`;
+
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) throw new Error('Weather service unavailable');
+        const data = await response.json();
+        renderHomeWeather(data);
+    } catch (error) {
+        console.error(error);
+        showHomeWeatherError('Unable to load live weather at this time.');
+    }
+}
+
 
 // Courses Data
 
@@ -147,3 +196,7 @@ function updateButtonStyles(activeButton) {
         wddBtn.classList.add('active');
     }
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+    loadHomeWeather();
+});
