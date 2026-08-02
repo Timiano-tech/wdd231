@@ -223,21 +223,21 @@ button.active {
 }
 
 /* Footer */
-.socials {
+footer.site-footer .socials {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-bottom: 0.5rem;
 }
 
-.socials img {
+footer.site-footer .socials img {
     width: 24px;
     height: 24px;
     filter: brightness(0) invert(1);
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-footer {
+footer.site-footer {
     background-color: var(--primary-color);
     color: white;
     text-align: center;
