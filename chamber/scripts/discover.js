@@ -1,4 +1,4 @@
-import discoverItems from '../chamber/data/discover-items.mjs';
+import discoverItems from '../data/discover-items.mjs';
 
 const discoverGrid = document.getElementById('discover-grid');
 const visitMessage = document.getElementById('visit-message');
