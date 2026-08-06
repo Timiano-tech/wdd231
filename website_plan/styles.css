@@ -1,0 +1,173 @@
+:root {
+    --color-bg: #ffffff;
+    --color-surface: #ffffff;
+    --color-border: rgba(18, 18, 18, 0.08);
+    --color-text: #1f1f1f;
+    --color-muted: #6d6d6d;
+    --color-accent: #12101a;
+    --color-gold: #bf8c29;
+    --font-display: "Bebas Neue", "Arial Narrow", sans-serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: "Space Mono", "Courier New", monospace;
+    --max-width: 860px;
+    --radius: 18px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.7;
+}
+
+body,
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+img,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+    color: var(--color-text);
+    margin: 0;
+}
+
+a {
+    color: var(--color-accent);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+code {
+    font-family: var(--font-mono);
+    background: rgba(242, 183, 5, 0.12);
+    color: var(--color-accent);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+}
+
+/* ---------- header ---------- */
+
+.site-header {
+    padding: 3.5rem 1.5rem 2.5rem;
+    text-align: center;
+}
+
+.eyebrow,
+.eyebrow-mono {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    margin: 0 0 1rem;
+}
+
+.marquee {
+    font-size: clamp(3rem, 12vw, 5.5rem);
+    color: var(--color-gold);
+    text-shadow: 0 0 22px rgba(242, 183, 5, 0.35);
+}
+
+.tagline {
+    max-width: 34rem;
+    margin: 0.75rem auto 0;
+    color: var(--color-muted);
+    font-size: 1.05rem;
+}
+
+main {
+    width: min(100%, var(--max-width));
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 3rem;
+}
+
+.plan-section {
+    margin-bottom: 2rem;
+    background: #fafafa;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+}
+
+.plan-section h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.plan-section p,
+.simple-list {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 1rem;
+}
+
+.simple-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
+}
+
+.simple-list li {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+}
+
+/* ---------- wireframe placeholder ---------- */
+
+.wireframe-placeholder {
+    padding: 2rem;
+    min-height: 200px;
+    background: #ffffff;
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: var(--color-muted);
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+    text-align: center;
+    padding: 1.75rem 1.5rem 2.5rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+@media (min-width: 760px) {
+    main {
+        padding: 3rem 2rem 4rem;
+    }
+
+    .plan-section {
+        margin-bottom: 3rem;
+    }
+}
