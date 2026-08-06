@@ -246,6 +246,89 @@ footer {
     gap: 1rem;
 }
 
+.discover-hero {
+    background: linear-gradient(180deg, rgba(248, 246, 239, 0.95), rgba(255, 255, 255, 0.92));
+    border: 1px solid rgba(31, 58, 95, 0.12);
+    border-radius: 2rem;
+    padding: 2.4rem 1.4rem;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 24px 60px rgba(17, 50, 77, 0.07);
+}
+
+.visit-message {
+    width: min(100%, 920px);
+    margin: 0 auto 2rem;
+    padding: 1rem 1.2rem;
+    background: #f0f8ff;
+    border: 1px solid rgba(17, 50, 77, 0.12);
+    border-radius: 1.25rem;
+    color: var(--navy);
+    text-align: center;
+}
+
+.page-intro {
+    padding: 0 0 1.5rem;
+}
+
+.discover-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.discover-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 14px 30px rgba(17, 50, 77, 0.06);
+    display: grid;
+    gap: 1rem;
+}
+
+.discover-card h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.discover-card address {
+    font-style: normal;
+    color: var(--muted);
+}
+
+.discover-card p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.discover-card button {
+    justify-self: start;
+    border: none;
+    background: var(--teal);
+    color: white;
+    padding: 0.95rem 1.3rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.discover-card button:hover,
+.discover-card button:focus-visible {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+}
+
+.discover-image {
+    overflow: hidden;
+    border-radius: 1.25rem;
+}
+
+.discover-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .socials img {
     width: 1.4rem;
     height: auto;
